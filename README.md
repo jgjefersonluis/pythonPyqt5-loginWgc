@@ -1,6 +1,6 @@
 # pythonPyqt5-loginWgc
 
-Criar Sistema De Login, criar 3 Interfaces Gráficas de Usuário (GUI) - login, cadastrar e tela usuario, com QtDesigner e PyQt5. Criar Banco De Dados no SQlite3 e integrar o Banco de Dados com o cadastrar usuarios. Utilizando a IDE - MS Visual Code.
+Criar um sistema de login, onde terá 3 Interfaces Gráficas de Usuário (GUI) - login, cadastrar e tela usuario, com QtDesigner e PyQt5. Criar Banco De Dados no SQlite3 e integrar o Banco de Dados com o cadastrar usuarios. Utilizando a IDE - MS Visual Code.
 
 
 ![login](https://user-images.githubusercontent.com/47151248/155852151-3459d52b-7cc3-4a22-9892-d50207b6e2f5.jpg)
