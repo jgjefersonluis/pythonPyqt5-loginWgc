@@ -11,6 +11,31 @@ def abre_tela_cadastro():
     tela_cadastro.show()
 
 
+def cadastrar():
+    nome = tela_cadastro.lineEdit.text()
+    login = tela_cadastro.lineEdit_2.text()
+    senha = tela_cadastro.lineEdit_3.text()
+    c_senha = tela_cadastro.lineEdit_4.text()
+
+    if (senha == c_senha):
+        try:
+            banco = sqlite3.connect('banco_cadastro.db')
+            cursor = banco.cursor()
+            cursor.execute(
+                "CREATE TABLE IF NOT EXISTS cadastro (nome text,login text,senha text)")
+            cursor.execute("INSERT INTO cadastro VALUES ('" +
+                           nome+"','"+login+"','"+senha+"')")
+
+            banco.commit()
+            banco.close()
+            tela_cadastro.label.setText("Usuario cadastrado com sucesso")
+
+        except sqlite3.Error as erro:
+            print("Erro ao inserir os dados: ", erro)
+    else:
+        tela_cadastro.label.setText("As senhas digitadas estão diferentes")
+
+
 app = QtWidgets.QApplication([])
 primeira_tela = uic.loadUi("primeira_tela.ui")
 segunda_tela = uic.loadUi("segunda_tela.ui")
