@@ -2,6 +2,28 @@ from PyQt5 import uic, QtWidgets
 import sqlite3
 
 
+def chama_segunda_tela():
+    primeira_tela.label_4.setText("")
+    nome_usuario = primeira_tela.lineEdit.text()
+    senha = primeira_tela.lineEdit_2.text()
+    banco = sqlite3.connect('banco_cadastro.db')
+    cursor = banco.cursor()
+    try:
+        cursor.execute(
+            "SELECT senha FROM cadastro WHERE login = '{}'".format(nome_usuario))
+        senha_bd = cursor.fetchall()
+        print(senha_bd[0][0])
+        banco.close()
+    except:
+        print("Erro ao validar o login")
+
+    if senha == senha_bd[0][0]:
+        primeira_tela.close()
+        segunda_tela.show()
+    else:
+        primeira_tela.label_4.setText("Dados de login incorretos!")
+
+
 def logout():
     segunda_tela.close()
     primeira_tela.show()
